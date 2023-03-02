@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 
 const Base = styled.div<StyleProps>`
-  width: 100%;
-  min-width: 200px;
-  max-width: 300px;
+  width: 45%;
+  padding: 10px;
+
   height: 600px;
   display: flex;
-  margin: ${(props) => props.margin};
   flex-direction: column;
 `;
 

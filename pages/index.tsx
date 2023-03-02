@@ -6,28 +6,32 @@ import axios from "axios";
 import MovieCard from "@/components/molecules/MovieCard";
 import Stack from "@/components/atoms/layout/Stack";
 import { useEffect, useState } from "react";
+import Router, { useRouter } from "next/router";
 
 const Base = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
 `;
 
 export default function Home() {
-  const API_KEY = "e87412351932ff46d3887beef3d19d45";
+  const api = process.env.NEXT_PUBLIC_API_KEY;
   const ImagePath = "https://image.tmdb.org/t/p/w500";
   const [movieData, setMovieData] = useState<any[]>([]);
+  const router = useRouter();
 
   const getMovies = async () => {
     return await axios
-      .get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
+      .get(`https://api.themoviedb.org/3/movie/popular?api_key=${api}`)
       .then((res) => setMovieData(res.data.results));
   };
 
   const { isLoading, error, data } = useQuery("movies", getMovies);
 
-  console.log(movieData);
+  const handleClick = (movieId: number | string) => {
+    router.push(`/movie/${movieId}`);
+  };
   return (
     <>
       <Seo title="홈"></Seo>
@@ -49,7 +53,7 @@ export default function Home() {
                   popularity={movie.popularity}
                   genre_ids={movie.genre_ids}
                   release_date={movie.release_date}
-                  margin="10px"
+                  onClick={() => handleClick(movie.id)}
                 ></MovieCard>
               );
             })}

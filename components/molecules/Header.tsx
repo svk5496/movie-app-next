@@ -5,12 +5,17 @@ import { ButtonText } from "../atoms/ButtonText";
 
 const Base = styled.div`
   width: 100%;
+  min-width: 370px;
+  max-width: 420px;
   height: 60px;
   display: flex;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
 `;
 
 const MenuWrapper = styled.div`
-  width: 40%;
   display: inline-flex;
   justify-content: space-between;
 `;
@@ -26,17 +31,6 @@ export default function Header() {
           onClick={() => router.push("/")}
           label="로고"
           variant="primary"
-        ></ButtonText>
-
-        <ButtonText
-          onClick={() => router.push("/nutrient")}
-          label="영양성분"
-          variant="ghost"
-        ></ButtonText>
-        <ButtonText
-          onClick={() => router.push("/healthGoal")}
-          label="건강목표"
-          variant="ghost"
         ></ButtonText>
       </MenuWrapper>
       <UserInfoWrapper></UserInfoWrapper>
