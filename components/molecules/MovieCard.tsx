@@ -3,20 +3,26 @@ import styled from "@emotion/styled";
 const Base = styled.div<StyleProps>`
   width: 45%;
   padding: 10px;
-
-  height: 600px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 `;
 
 const ImageBox = styled.div`
   width: 100%;
-  height: 100%;
-  height: 300px;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    :hover {
+      width: 105%;
+      height: 105%;
+    }
   }
 `;
 

@@ -7,7 +7,7 @@ interface SeoProps {
 export default function Seo({ title }: SeoProps) {
   return (
     <Head>
-      <title>{title} | 알약하나</title>
+      <title>{title} | 영화 앱</title>
     </Head>
   );
 }
