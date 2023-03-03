@@ -5,9 +5,11 @@ interface SeoProps {
 }
 
 export default function Seo({ title }: SeoProps) {
+
+  const message = `${title} | 영화 앱`
   return (
     <Head>
-      <title>{title} | 영화 앱</title>
+      <title>{message}</title>
     </Head>
   );
 }

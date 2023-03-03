@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { ButtonText } from "../atoms/ButtonText";
 
@@ -29,8 +28,18 @@ export default function Header() {
       <MenuWrapper>
         <ButtonText
           onClick={() => router.push("/")}
-          label="로고"
+          label="HOME"
           variant="primary"
+        ></ButtonText>
+        <ButtonText
+          label="Trending"
+          variant="ghost"
+          onClick={() => router.push("/popular")}
+        ></ButtonText>
+        <ButtonText
+          label="Adult"
+          variant="ghost"
+          onClick={() => router.push("/popular")}
         ></ButtonText>
       </MenuWrapper>
       <UserInfoWrapper></UserInfoWrapper>

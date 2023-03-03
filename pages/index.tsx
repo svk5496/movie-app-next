@@ -23,6 +23,7 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const router = useRouter();
 
+
   const getMovies = async () =>
     await axios
       .get(`https://api.themoviedb.org/3/movie/popular`, {
@@ -36,6 +37,7 @@ export default function Home() {
   useEffect(() => {
     getMovies();
   }, []);
+
 
   const bottom = useRef(null);
 
@@ -57,6 +59,9 @@ export default function Home() {
       return lastPage.page + 1;
     },
   });
+
+  
+
   const handleClick = (movieId: number | string) => {
     router.push(`/movie/${movieId}`);
   };
