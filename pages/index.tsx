@@ -23,7 +23,6 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const router = useRouter();
 
-
   const getMovies = async () =>
     await axios
       .get(`https://api.themoviedb.org/3/movie/popular`, {
@@ -31,13 +30,13 @@ export default function Home() {
           api_key,
           page,
         },
+        //withCredentials: true, ==> cors 옵션
       })
       .then((res) => res.data);
 
   useEffect(() => {
     getMovies();
   }, []);
-
 
   const bottom = useRef(null);
 
@@ -60,8 +59,6 @@ export default function Home() {
     },
   });
 
-  
-
   const handleClick = (movieId: number | string) => {
     router.push(`/movie/${movieId}`);
   };
@@ -82,6 +79,7 @@ export default function Home() {
         <Stack>
           {status === "success" ? (
             <>
+              {/* 이중 루프를 돌림 */}
               {data.pages.map((page, index) => {
                 return (
                   <Stack key={index}>

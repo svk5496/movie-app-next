@@ -20,6 +20,6 @@
     },
     "types": ["@emotion/react/types/css-prop"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "hook/useObserver.js", "hook/useObserver.js", "hook/useObserver.js"],
   "exclude": ["node_modules"]
 }
