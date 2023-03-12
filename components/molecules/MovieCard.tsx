@@ -75,6 +75,9 @@ export default function MovieCard({
       </ImageBox>
       <TextBox>
         <h3>{title}</h3>
+        <span>{vote_average}/10</span>
+        <span>{vote_count} people</span>
+
         <p>{overview}</p>
       </TextBox>
     </Base>

@@ -34,7 +34,7 @@ export default function Header() {
         <ButtonText
           label="Trending"
           variant="ghost"
-          onClick={() => router.push("/popular")}
+          onClick={() => router.push("/trending")}
         ></ButtonText>
         <ButtonText
           label="Adult"

@@ -2,7 +2,7 @@ import BasicLayout from "@/components/atoms/layout/BasicLayout";
 import styled from "@emotion/styled";
 import { AppProps } from "next/dist/shared/lib/router/router";
 import React from "react";
-import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const Base = styled.div`
   width: calc(100vw - calc(100vw - 100%));
