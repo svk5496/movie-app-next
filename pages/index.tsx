@@ -49,6 +49,7 @@ export default function Home() {
   };
   console.log(data);
 
+  console.log(status);
   return (
     <>
       <Seo title="홈"></Seo>
@@ -80,6 +81,8 @@ export default function Home() {
             <div></div>
           )}
         </Stack>
+        {status === "loading" ? <div>로딩중입니다</div> : null}
+        {status === "error" ? <div>API 서버에 접속할 수 없습니다</div> : null}
       </Base>
     </>
   );
