@@ -1,7 +1,33 @@
+import { ButtonText } from "@/components/atoms/ButtonText";
+import styled from "@emotion/styled";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
+
+const Base = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 400px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+`;
 
 export default function Detail() {
   const route = useRouter();
@@ -17,10 +43,21 @@ export default function Detail() {
       .then((res) => setMovie(res.data));
   };
 
-  const { isLoading, error, data } = useQuery("movie", getMovie, {
+  const { isLoading, error, data, status } = useQuery("movie", getMovie, {
     enabled: !!id,
   });
   console.log(movie);
 
-  return <div>{id}</div>;
+  return (
+    <Base>
+      <ImageWrapper>
+        <img src={ImagePath + movie.poster_path}></img>
+      </ImageWrapper>
+      <h3>{movie.title}</h3>
+      <span>{movie.overview}</span>
+      <ButtonWrapper>
+        <ButtonText variant="primary" label="Make Reservation"></ButtonText>
+      </ButtonWrapper>
+    </Base>
+  );
 }
