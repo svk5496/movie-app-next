@@ -56,7 +56,11 @@ export default function Detail() {
       <h3>{movie.title}</h3>
       <span>{movie.overview}</span>
       <ButtonWrapper>
-        <ButtonText variant="primary" label="Make Reservation"></ButtonText>
+        <ButtonText
+          variant="primary"
+          label="Make Reservation"
+          onClick={() => alert("예약 홈으로 이동")}
+        ></ButtonText>
       </ButtonWrapper>
     </Base>
   );
